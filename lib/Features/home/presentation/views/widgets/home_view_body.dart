@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
+import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -44,7 +46,7 @@ class HomeViewBody extends StatelessWidget {
           ),
           const SliverToBoxAdapter(
             child: Text(
-              'Last Snapped',
+              'History',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
@@ -56,82 +58,7 @@ class HomeViewBody extends StatelessWidget {
               height: 10,
             ),
           ),
-          SliverList.builder(itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              margin: const EdgeInsets.only(top: 10),
-              height: 60,
-            );
-          })
-        ],
-      ),
-    );
-  }
-}
-
-class SelectionSource extends StatelessWidget {
-  const SelectionSource({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        CustomSelectionSourceItem(
-          text: 'Camera',
-          iconData: Icons.photo_camera,
-        ),
-        CustomSelectionSourceItem(
-          text: 'Gallery',
-          iconData: Icons.photo_library,
-        ),
-      ],
-    );
-  }
-}
-
-class CustomSelectionSourceItem extends StatelessWidget {
-  const CustomSelectionSourceItem({
-    super.key,
-    required this.text,
-    required this.iconData,
-  });
-  final String text;
-  final IconData iconData;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 170,
-      height: 180,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Card(
-            shape: const CircleBorder(),
-            color: const Color(0xff3F54FF),
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Icon(
-                iconData,
-                size: 32,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-          ),
+          const HistorySliverList()
         ],
       ),
     );
