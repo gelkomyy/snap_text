@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:snap_text/Features/home/presentation/choose_language_view.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source_item.dart';
 
 class SelectionSource extends StatefulWidget {
@@ -28,6 +29,10 @@ class _SelectionSourceState extends State<SelectionSource> {
         setState(() {
           _pickedImage = croppedFile;
         });
+
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return ChooseLanguageView(croppedFile: _pickedImage!);
+        }));
       }
     }
   }
