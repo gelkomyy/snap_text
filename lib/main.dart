@@ -13,7 +13,7 @@ class SnapText extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ResultView(),
+      home: HomeView(),
     );
   }
 }
