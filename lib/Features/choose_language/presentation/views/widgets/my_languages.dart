@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/language_item.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_item.dart';
 
 class MyLanguages extends StatefulWidget {
   const MyLanguages({super.key});

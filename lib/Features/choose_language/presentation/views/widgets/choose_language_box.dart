@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/choose_language_box_items.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box_items.dart';
 
 class ChooseLanguageBox extends StatelessWidget {
   const ChooseLanguageBox({

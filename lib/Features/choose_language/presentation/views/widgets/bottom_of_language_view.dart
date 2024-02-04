@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/choose_language_box.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/language_dialog.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog.dart';
 
 class BottomOfLanguageView extends StatelessWidget {
   const BottomOfLanguageView({

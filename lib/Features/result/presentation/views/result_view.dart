@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/result_widgets/result_view_body.dart';
+import 'package:snap_text/Features/result/presentation/views/widgets/result_view_body.dart';
 
 class ResultView extends StatelessWidget {
   const ResultView({super.key});

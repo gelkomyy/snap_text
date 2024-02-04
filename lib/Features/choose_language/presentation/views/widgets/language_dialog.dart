@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/language_dialog_buttons.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/my_languages.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog_buttons.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/my_languages.dart';
 
 class LanguageDialog extends StatelessWidget {
   const LanguageDialog({

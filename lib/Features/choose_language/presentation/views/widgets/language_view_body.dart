@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
-import 'package:snap_text/Features/home/presentation/choose_language_widgets/bottom_of_language_view.dart';
+import 'package:snap_text/Features/choose_language/presentation/views/widgets/bottom_of_language_view.dart';
 
 class LanguageViewBody extends StatelessWidget {
   const LanguageViewBody({

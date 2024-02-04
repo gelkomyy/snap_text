@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/result_widgets/extracted_text_field.dart';
-import 'package:snap_text/Features/home/presentation/result_widgets/in_top_extracted_text_details.dart';
-import 'package:snap_text/Features/home/presentation/result_widgets/result_buttons.dart';
+import 'package:snap_text/Features/result/presentation/views/widgets/extracted_text_field.dart';
+import 'package:snap_text/Features/result/presentation/views/widgets/in_top_extracted_text_details.dart';
+import 'package:snap_text/Features/result/presentation/views/widgets/result_buttons.dart';
 
 class ResultViewBody extends StatelessWidget {
   const ResultViewBody({

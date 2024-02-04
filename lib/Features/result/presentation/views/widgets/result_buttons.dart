@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/result_widgets/custom_icon_button_circle.dart';
+import 'package:snap_text/Features/result/presentation/views/widgets/custom_icon_button_circle.dart';
 
 class ResultButtons extends StatelessWidget {
   const ResultButtons({
