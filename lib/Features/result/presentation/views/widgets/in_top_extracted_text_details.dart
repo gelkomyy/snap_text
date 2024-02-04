@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class InTopExtractedTextDetails extends StatelessWidget {
   const InTopExtractedTextDetails({
     super.key,
+    required this.imageModel,
   });
-
+  final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -36,13 +40,16 @@ class InTopExtractedTextDetails extends StatelessWidget {
           height: 40,
           width: 40,
           decoration: BoxDecoration(
-            color: const Color(0xff3F54FF),
-            borderRadius: BorderRadius.circular(12),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: FileImage(
+                File(imageModel.path),
+              ),
+            ),
+            // color: const Color(0xff3F54FF),
+            borderRadius: BorderRadius.circular(8),
           ),
-          child: const Icon(
-            Icons.history,
-            color: Colors.white,
-          ),
+          //child: Image.file(File(imageModel.path)),
         ),
       ],
     );

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/result/presentation/views/widgets/result_view_body.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class ResultView extends StatelessWidget {
-  const ResultView({super.key});
-
+  const ResultView({super.key, required this.imageModel});
+  final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +20,8 @@ class ResultView extends StatelessWidget {
         ),
       ),
       backgroundColor: const Color(0xffFAFBFD),
-      body: const SafeArea(
-        child: ResultViewBody(),
+      body: SafeArea(
+        child: ResultViewBody(imageModel: imageModel),
       ),
     );
   }

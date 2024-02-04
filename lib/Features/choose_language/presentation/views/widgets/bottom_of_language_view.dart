@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog.dart';
+import 'package:snap_text/Features/result/presentation/views/result_view.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class BottomOfLanguageView extends StatelessWidget {
   const BottomOfLanguageView({
     super.key,
+    required this.imageModel,
   });
-
+  final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -15,7 +18,9 @@ class BottomOfLanguageView extends StatelessWidget {
           showDialog(
               context: context,
               builder: (context) {
-                return const LanguageDialog();
+                return LanguageDialog(
+                  imageModel: imageModel,
+                );
               });
         },
         child: const ChooseLanguageBox(),
@@ -28,7 +33,12 @@ class BottomOfLanguageView extends StatelessWidget {
         width: double.infinity,
         height: 46,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .pushReplacement(MaterialPageRoute(builder: (context) {
+              return ResultView(imageModel: imageModel);
+            }));
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xff3F54FF),
           ),

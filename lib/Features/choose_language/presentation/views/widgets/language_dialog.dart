@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog_buttons.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/my_languages.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class LanguageDialog extends StatelessWidget {
   const LanguageDialog({
     super.key,
+    required this.imageModel,
   });
-
+  final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -20,27 +22,27 @@ class LanguageDialog extends StatelessWidget {
           ),
 
           // height:   MediaQuery.of(context).size.height * 0.5,
-          child: const Column(
+          child: Column(
             children: [
-              Text(
+              const Text(
                 'Select Language',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-              Divider(
+              const Divider(
                 indent: 50,
                 endIndent: 50,
               ),
-              MyLanguages(),
-              SizedBox(
+              MyLanguages(imageModel: imageModel),
+              const SizedBox(
                 height: 18,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: LanguageDialogButtons(),
               ),

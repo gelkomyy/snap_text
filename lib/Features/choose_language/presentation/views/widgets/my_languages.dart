@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_item.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class MyLanguages extends StatefulWidget {
-  const MyLanguages({super.key});
-
+  const MyLanguages({super.key, required this.imageModel});
+  final ImageModel imageModel;
   @override
   State<MyLanguages> createState() => _MyLanguagesState();
 }
 
 class _MyLanguagesState extends State<MyLanguages> {
-  String selectedLanguage = 's';
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,39 +17,39 @@ class _MyLanguagesState extends State<MyLanguages> {
         InkWell(
           onTap: () {
             setState(() {
-              selectedLanguage = 'English';
+              widget.imageModel.selectedLanguage = 'English';
             });
           },
           child: LanguageItem(
-            selectedLanguage: selectedLanguage,
+            selectedLanguage: widget.imageModel.selectedLanguage,
             language: 'English',
           ),
         ),
         InkWell(
           onTap: () {
             setState(() {
-              selectedLanguage = 'Arabic';
+              widget.imageModel.selectedLanguage = 'Arabic';
             });
           },
           child: LanguageItem(
-            selectedLanguage: selectedLanguage,
+            selectedLanguage: widget.imageModel.selectedLanguage,
             language: 'Arabic',
           ),
         ),
         LanguageItem(
-          selectedLanguage: selectedLanguage,
+          selectedLanguage: widget.imageModel.selectedLanguage,
           language: 'Chiness',
         ),
         LanguageItem(
-          selectedLanguage: selectedLanguage,
+          selectedLanguage: widget.imageModel.selectedLanguage,
           language: 'Japaness',
         ),
         LanguageItem(
-          selectedLanguage: selectedLanguage,
+          selectedLanguage: widget.imageModel.selectedLanguage,
           language: 'Turkish',
         ),
         LanguageItem(
-          selectedLanguage: selectedLanguage,
+          selectedLanguage: widget.imageModel.selectedLanguage,
           language: 'Turkish',
         ),
       ],
