@@ -1,4 +1,3 @@
-import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog_buttons.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/my_languages.dart';
 import 'package:snap_text/core/models/image_model.dart';
 

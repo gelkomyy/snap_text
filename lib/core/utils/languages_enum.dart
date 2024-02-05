@@ -1,10 +1,20 @@
+import 'package:hive/hive.dart';
+
+@HiveType(typeId: 1)
 enum LanguagesEnum {
+  @HiveField(0)
   english,
+  @HiveField(1)
   arabic,
+  @HiveField(2)
   spanish,
+  @HiveField(3)
   french,
+  @HiveField(4)
   german,
+  @HiveField(5)
   turkish,
+  @HiveField(6)
   russian,
 
   // Add more languages as needed

@@ -1,13 +1,10 @@
 import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog.dart';
 import 'package:snap_text/Features/result/presentation/views/result_view.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/get_extracted_text.dart';
-import 'package:snap_text/core/utils/languages_enum.dart';
 
 class BottomOfLanguageView extends StatelessWidget {
   const BottomOfLanguageView({
