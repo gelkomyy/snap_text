@@ -42,9 +42,29 @@ class LanguageDialog extends StatelessWidget {
               const SizedBox(
                 height: 18,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: LanguageDialogButtons(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 36,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff3F54FF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        )),
+                    child: const Text(
+                      'Done',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

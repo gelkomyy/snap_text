@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_item.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/languages_enum.dart';
 
 class MyLanguages extends StatefulWidget {
   const MyLanguages({super.key, required this.imageModel});
@@ -12,7 +13,27 @@ class MyLanguages extends StatefulWidget {
 class _MyLanguagesState extends State<MyLanguages> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Expanded(
+      child: ListView.builder(
+          itemCount: LanguagesEnum.values.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                setState(() {
+                  widget.imageModel.selectedLanguage =
+                      LanguagesEnum.values[index];
+                });
+              },
+              child: LanguageItem(
+                language: LanguagesEnum.values[index].displayName,
+                selectedLanguage:
+                    widget.imageModel.selectedLanguage.displayName,
+              ),
+            );
+          }),
+    );
+
+    /* return Column(
       children: [
         InkWell(
           onTap: () {
@@ -53,6 +74,6 @@ class _MyLanguagesState extends State<MyLanguages> {
           language: 'Turkish',
         ),
       ],
-    );
+    ); */
   }
 }

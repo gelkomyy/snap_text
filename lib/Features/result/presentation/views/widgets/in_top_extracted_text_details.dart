@@ -40,6 +40,7 @@ class InTopExtractedTextDetails extends StatelessWidget {
           height: 40,
           width: 40,
           decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey, width: 0.7),
             image: DecorationImage(
               fit: BoxFit.fill,
               image: FileImage(

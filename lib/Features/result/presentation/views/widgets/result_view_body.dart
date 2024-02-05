@@ -30,7 +30,9 @@ class ResultViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const ExtractedTextField(),
+                ExtractedTextField(
+                  imageModel: imageModel,
+                ),
               ],
             ),
           ),
