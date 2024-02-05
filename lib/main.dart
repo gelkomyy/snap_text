@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/home_view.dart';
 
 void main() {
@@ -10,9 +12,12 @@ class SnapText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeView(),
+    return BlocProvider(
+      create: (context) => DatabaseManagerCubit(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeView(),
+      ),
     );
   }
 }

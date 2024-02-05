@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:snap_text/core/utils/api_service.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
-class GetExtractedText {
+class GetExtractedTextApi {
   ApiService apiService = ApiService(Dio());
   String apiKey = 'helloworld';
   Future<String> getTextFromApi({

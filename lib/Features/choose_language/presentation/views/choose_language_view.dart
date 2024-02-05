@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:snap_text/Features/choose_language/presentation/manager/get_extracted_text_from_image_cubit/get_extracted_text_from_image_cubit.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_view_body.dart';
 import 'package:snap_text/core/models/image_model.dart';
 
@@ -22,20 +24,23 @@ class ChooseLanguageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color(0xffFAFBFD),
-        title: const Text(
-          'Language',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+    return BlocProvider(
+      create: (context) => GetExtractedTextFromImageCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: const Color(0xffFAFBFD),
+          title: const Text(
+            'Language',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
+        backgroundColor: Colors.black,
+        body: SafeArea(child: LanguageViewBody(imageModel: imageModel)),
       ),
-      backgroundColor: Colors.black,
-      body: SafeArea(child: LanguageViewBody(imageModel: imageModel)),
     );
   }
 }

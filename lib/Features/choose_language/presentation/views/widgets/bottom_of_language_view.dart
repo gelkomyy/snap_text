@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_text/Features/choose_language/presentation/manager/get_extracted_text_from_image_cubit/get_extracted_text_from_image_cubit.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog.dart';
 import 'package:snap_text/Features/result/presentation/views/result_view.dart';
 import 'package:snap_text/core/models/image_model.dart';
-import 'package:snap_text/core/utils/get_extracted_text.dart';
 
 class BottomOfLanguageView extends StatelessWidget {
   const BottomOfLanguageView({
@@ -25,7 +26,7 @@ class BottomOfLanguageView extends StatelessWidget {
                 );
               });
         },
-        child: const ChooseLanguageBox(),
+        child: ChooseLanguageBox(imageModel: imageModel),
       ),
       const SizedBox(
         height: 16,
@@ -36,9 +37,11 @@ class BottomOfLanguageView extends StatelessWidget {
         height: 46,
         child: ElevatedButton(
           onPressed: () async {
-            String extractedText = await GetExtractedText().getTextFromApi(
-                file: File(imageModel.path),
-                language: imageModel.selectedLanguage);
+            String extractedText =
+                await BlocProvider.of<GetExtractedTextFromImageCubit>(context)
+                    .getExtractedTextFromImage(
+                        file: File(imageModel.path),
+                        language: imageModel.selectedLanguage);
             imageModel.extractedText = extractedText;
             Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (context) {
