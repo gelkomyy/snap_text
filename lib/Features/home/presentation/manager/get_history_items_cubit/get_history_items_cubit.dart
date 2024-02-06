@@ -13,7 +13,11 @@ class GetHistoryItemsCubit extends Cubit<GetHistoryItemsState> {
     emit(GetAllHistoryLoading());
     List<ImageModel> models = databaseHelper.getAllModelsHive(historyBox);
     await Future.delayed(const Duration(seconds: 2));
-    emit(GetAllHistoryDone(models: models));
+    if (models.isNotEmpty) {
+      emit(GetAllHistoryDone(models: models));
+    } else {
+      emit(GetHistoryItemsInitial());
+    }
     return models;
   }
 }

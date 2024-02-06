@@ -16,6 +16,7 @@ void main() async {
   Hive.registerAdapter(ImageModelAdapter());
   await Hive.initFlutter();
   await Hive.openBox<ImageModel>(historyBox);
+
   await Hive.openBox<ImageModel>(bookmarkBox);
 
   runApp(const SnapText());

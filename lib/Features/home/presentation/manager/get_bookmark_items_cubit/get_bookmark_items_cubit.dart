@@ -13,7 +13,11 @@ class GetBookmarkItemsCubit extends Cubit<GetBookmarkItemsState> {
     emit(GetAllBookmarkLoading());
     List<ImageModel> models = databaseHelper.getAllModelsHive(bookmarkBox);
     await Future.delayed(const Duration(seconds: 2));
-    emit(GetAllBookmarkDone(models: models));
+    if (models.isNotEmpty) {
+      emit(GetAllBookmarkDone(models: models));
+    } else {
+      emit(GetBookmarkItemsInitial());
+    }
     return models;
   }
 }

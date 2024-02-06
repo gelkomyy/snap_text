@@ -35,3 +35,17 @@ class DatabaseHelper {
     await box.close();
   }
 }
+/* Future<void> deleteHiveDatabase() async {
+  // Get the directory where Hive stores its data
+  final appDocumentDir = await getApplicationDocumentsDirectory();
+  final hiveDir = Directory(appDocumentDir.path);
+
+  // Check if the Hive directory exists
+  if (hiveDir.existsSync()) {
+    // Delete the directory and all its contents
+    await hiveDir.delete(recursive: true);
+    print('Hive database deleted successfully.');
+  } else {
+    print('Hive database directory not found.');
+  }
+} */

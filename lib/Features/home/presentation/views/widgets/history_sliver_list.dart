@@ -16,7 +16,9 @@ class HistorySliverList extends StatelessWidget {
       builder: (context, state) {
         if (state is GetAllHistoryDone) {
           return SliverList.builder(
-            itemCount: isHomeView(context) ? 8 : state.models.length,
+            itemCount: isHomeView(context)
+                ? (state.models.length <= 8 ? state.models.length : 8)
+                : state.models.length,
             itemBuilder: (context, index) {
               return HistoryItem(imageModel: state.models[index]);
             },
