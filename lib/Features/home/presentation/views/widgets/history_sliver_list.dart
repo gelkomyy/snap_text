@@ -21,9 +21,7 @@ class HistorySliverList extends StatelessWidget {
             },
           );
         } else if (state is GetAllHistoryLoading) {
-          return const SliverToBoxAdapter(
-            child: HistoryLoading(),
-          );
+          return const SliverToBoxAdapter(child: HistoryLoading());
         } else {
           return const SliverToBoxAdapter(
             child: Center(

@@ -12,7 +12,7 @@ class GetBookmarkItemsCubit extends Cubit<GetBookmarkItemsState> {
   Future<List<ImageModel>> getAllModels() async {
     emit(GetAllBookmarkLoading());
     List<ImageModel> models = databaseHelper.getAllModelsHive(bookmarkBox);
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
     emit(GetAllBookmarkDone(models: models));
     return models;
   }

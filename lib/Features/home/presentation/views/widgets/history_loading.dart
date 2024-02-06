@@ -13,20 +13,13 @@ class HistoryLoading extends StatelessWidget {
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
       enabled: true,
-      child: const SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            LoadingHistoryItem(),
-            LoadingHistoryItem(),
-            LoadingHistoryItem(),
-            LoadingHistoryItem(),
-            LoadingHistoryItem(),
-          ],
-        ),
-      ),
+      child: ListView.builder(
+          itemCount: 10,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return const LoadingHistoryItem();
+          }),
     );
   }
 }

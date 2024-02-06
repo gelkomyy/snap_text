@@ -12,7 +12,7 @@ class GetHistoryItemsCubit extends Cubit<GetHistoryItemsState> {
   Future<List<ImageModel>> getAllModels() async {
     emit(GetAllHistoryLoading());
     List<ImageModel> models = databaseHelper.getAllModelsHive(historyBox);
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
     emit(GetAllHistoryDone(models: models));
     return models;
   }

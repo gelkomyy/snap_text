@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/Features/history/presentation/views/history_view.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
 
@@ -44,13 +45,32 @@ class HomeViewBody extends StatelessWidget {
               height: 20,
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Text(
-              'History',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-              ),
+          SliverToBoxAdapter(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'History',
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const HistoryView();
+                    }));
+                  },
+                  child: const Text(
+                    'See all',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           const SliverToBoxAdapter(
