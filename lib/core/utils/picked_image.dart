@@ -6,12 +6,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/choose_language_view.dart';
 import 'package:snap_text/constans.dart';
 
-CroppedFile? pickedImage;
+File? pickedImage;
 Future<void> pickImage(BuildContext context, ImageSource source) async {
   final pickedFile = await ImagePicker().pickImage(source: source);
 
   if (pickedFile != null) {
-    CroppedFile? croppedFile = await _cropImage(File(pickedFile.path));
+    File? croppedFile = await _cropImage(File(pickedFile.path));
     if (croppedFile != null) {
       pickedImage = croppedFile;
       if (!context.mounted) return;
@@ -22,8 +22,9 @@ Future<void> pickImage(BuildContext context, ImageSource source) async {
   }
 }
 
-Future<CroppedFile?> _cropImage(File imageFile) async {
-  return await ImageCropper().cropImage(
+Future<File?> _cropImage(File imageFile) async {
+  File? newFile;
+  CroppedFile? croppedFile = await ImageCropper().cropImage(
     sourcePath: imageFile.path,
     compressQuality: 100,
     //maxWidth: 800,
@@ -32,13 +33,10 @@ Future<CroppedFile?> _cropImage(File imageFile) async {
       AndroidUiSettings(
         toolbarTitle: 'Crop Image',
         toolbarColor: kPrimaryColor,
-
         toolbarWidgetColor: Colors.white,
         initAspectRatio: CropAspectRatioPreset.original,
         lockAspectRatio: false,
         hideBottomControls: true,
-
-        //   hideBottomControls: true,
       ),
       IOSUiSettings(
         title: 'Crop Image',
@@ -48,4 +46,15 @@ Future<CroppedFile?> _cropImage(File imageFile) async {
       ),
     ],
   );
+
+  // Rename the cropped file to the original file name manually
+  if (croppedFile != null) {
+    String originalFileName = imageFile.path.split(Platform.pathSeparator).last;
+    var lastSeparator = croppedFile.path.lastIndexOf(Platform.pathSeparator);
+    String newPath =
+        '${croppedFile.path.substring(0, lastSeparator + 1)}$originalFileName';
+    await imageFile.delete();
+    newFile = await File(croppedFile.path).rename(newPath);
+  }
+  return newFile;
 }

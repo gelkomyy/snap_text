@@ -1,6 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:snap_text/Features/choose_language/presentation/manager/get_extracted_text_from_image_cubit/get_extracted_text_from_image_cubit.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_view_body.dart';
 import 'package:snap_text/constans.dart';
@@ -8,7 +9,7 @@ import 'package:snap_text/core/models/image_model.dart';
 
 class ChooseLanguageView extends StatelessWidget {
   const ChooseLanguageView({super.key, required this.croppedFile});
-  final CroppedFile croppedFile;
+  final File croppedFile;
 
   String _addLeadingZero(int value) {
     return value < 10 ? '0$value' : '$value';

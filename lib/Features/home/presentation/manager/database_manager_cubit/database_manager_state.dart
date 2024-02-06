@@ -9,7 +9,11 @@ final class EditWithoutInsert extends DatabaseManagerState {}
 
 final class GetAllModelsLoading extends DatabaseManagerState {}
 
-final class GetAllModelsDone extends DatabaseManagerState {}
+final class GetAllModelsDone extends DatabaseManagerState {
+  final List<ImageModel> models;
+
+  GetAllModelsDone({required this.models});
+}
 
 final class InsertModelLoading extends DatabaseManagerState {}
 

@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:snap_text/constans.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<DatabaseManagerCubit>(context).getAllModels(historyBox);
+  }
 
   @override
   Widget build(BuildContext context) {

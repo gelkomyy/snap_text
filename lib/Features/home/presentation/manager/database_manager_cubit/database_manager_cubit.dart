@@ -22,7 +22,7 @@ class DatabaseManagerCubit extends Cubit<DatabaseManagerState> {
   List<ImageModel> getAllModels(String boxName) {
     emit(GetAllModelsLoading());
     List<ImageModel> models = databaseHelper.getAllModelsHive(boxName);
-    emit(GetAllModelsDone());
+    emit(GetAllModelsDone(models: models));
     return models;
   }
 

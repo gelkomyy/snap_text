@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:snap_text/constans.dart';
+import 'package:snap_text/core/models/image_model.dart';
 
 class HistoryItemPhoto extends StatelessWidget {
   const HistoryItemPhoto({
     super.key,
+    required this.imageModel,
   });
-
+  final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,13 +16,17 @@ class HistoryItemPhoto extends StatelessWidget {
       height: 40,
       width: 40,
       decoration: BoxDecoration(
-        color: kPrimaryColor,
-        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey, width: 0.7),
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: FileImage(
+            File(imageModel.path),
+          ),
+        ),
+        // color: kPrimaryColor,
+        borderRadius: BorderRadius.circular(8),
       ),
-      child: const Icon(
-        Icons.history,
-        color: Colors.white,
-      ),
+      //child: Image.file(File(imageModel.path)),
     );
   }
 }
