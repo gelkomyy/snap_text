@@ -35,7 +35,8 @@ class ResultButtons extends StatelessWidget {
             await BlocProvider.of<DatabaseManagerCubit>(context)
                 .insertModel(
                     imageModel: ImageModel.copy(imageModel),
-                    boxName: bookmarkBox)
+                    boxName: bookmarkBox,
+                    context: context)
                 .then((value) => showCutomSnackBar(context, 'Saved.'));
           },
           child: const CustomIconButtonCircle(

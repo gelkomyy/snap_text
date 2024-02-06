@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/choose_language/presentation/manager/get_extracted_text_from_image_cubit/get_extracted_text_from_image_cubit.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_view_body.dart';
+import 'package:snap_text/Features/home/presentation/manager/change_language_without_insert_cubit/change_language_without_insert_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 
@@ -26,8 +27,15 @@ class ChooseLanguageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetExtractedTextFromImageCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => GetExtractedTextFromImageCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ChangeLanguageWithoutInsertCubit(),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,

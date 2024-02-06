@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/choose_language/presentation/manager/get_extracted_text_from_image_cubit/get_extracted_text_from_image_cubit.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/choose_language_box.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/language_dialog.dart';
+import 'package:snap_text/Features/home/presentation/manager/change_language_without_insert_cubit/change_language_without_insert_cubit.dart';
 import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
 import 'package:snap_text/Features/result/presentation/views/result_view.dart';
 import 'package:snap_text/constans.dart';
@@ -22,12 +23,17 @@ class BottomOfLanguageView extends StatelessWidget {
         onTap: () {
           showDialog(
               context: context,
-              builder: (context) {
-                return LanguageDialog(
-                  imageModel: imageModel,
+              builder: (_) {
+                return BlocProvider.value(
+                  value: BlocProvider.of<ChangeLanguageWithoutInsertCubit>(
+                      context),
+                  child: LanguageDialog(
+                    imageModel: imageModel,
+                  ),
                 );
               });
-          BlocProvider.of<DatabaseManagerCubit>(context).editWithoutInsert();
+          BlocProvider.of<ChangeLanguageWithoutInsertCubit>(context)
+              .editWithoutInsert();
         },
         child: ChooseLanguageBox(imageModel: imageModel),
       ),
@@ -66,8 +72,8 @@ class BottomOfLanguageView extends StatelessWidget {
                 language: imageModel.selectedLanguage);
     imageModel.extractedText = extractedText;
     if (!context.mounted) return;
-    BlocProvider.of<DatabaseManagerCubit>(context)
-        .insertModel(imageModel: imageModel, boxName: historyBox);
+    BlocProvider.of<DatabaseManagerCubit>(context).insertModel(
+        imageModel: imageModel, boxName: historyBox, context: context);
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
       return ResultView(imageModel: imageModel);
     }));

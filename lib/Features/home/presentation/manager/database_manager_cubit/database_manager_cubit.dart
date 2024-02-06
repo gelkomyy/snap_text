@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:snap_text/Features/home/presentation/manager/get_bookmark_items_cubit/get_bookmark_items_cubit.dart';
 import 'package:snap_text/Features/home/presentation/manager/get_history_items_cubit/get_history_items_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
@@ -12,19 +13,35 @@ class DatabaseManagerCubit extends Cubit<DatabaseManagerState> {
   DatabaseHelper databaseHelper = DatabaseHelper();
 
   Future<void> insertModel(
-      {required ImageModel imageModel, required String boxName}) async {
+      {required ImageModel imageModel,
+      required String boxName,
+      required BuildContext context}) async {
     emit(InsertModelLoading());
     await databaseHelper.insertModelHive(
         imageModel: imageModel, boxName: boxName);
     emit(InsertModelDone());
+    if (!context.mounted) return;
+    if (boxName == historyBox) {
+      await BlocProvider.of<GetHistoryItemsCubit>(context).getAllModels();
+    } else if (boxName == bookmarkBox) {
+      await BlocProvider.of<GetBookmarkItemsCubit>(context).getAllModels();
+    }
   }
 
   Future<void> deleteModel(
-      {required ImageModel imageModel, required String boxName}) async {
+      {required ImageModel imageModel,
+      required String boxName,
+      required BuildContext context}) async {
     emit(DeleteModelLoading());
     await databaseHelper.deleteModelHive(
         boxName: boxName, imageModel: imageModel);
     emit(DeleteModelDone());
+    if (!context.mounted) return;
+    if (boxName == historyBox) {
+      await BlocProvider.of<GetHistoryItemsCubit>(context).getAllModels();
+    } else if (boxName == bookmarkBox) {
+      await BlocProvider.of<GetBookmarkItemsCubit>(context).getAllModels();
+    }
   }
 
   Future<void> saveAfterEditedModel(
@@ -35,14 +52,16 @@ class DatabaseManagerCubit extends Cubit<DatabaseManagerState> {
     emit(SaveModelDone());
   }
 
-  Future<void> clearBoxModel(String boxName) async {
+  Future<void> clearBoxModel(String boxName, BuildContext context) async {
     emit(ClearModelLoading());
     await databaseHelper.clearBoxModelHive(boxName);
     emit(ClearModelDone());
-  }
-
-  editWithoutInsert() {
-    emit(EditWithoutInsert());
+    if (!context.mounted) return;
+    if (boxName == historyBox) {
+      await BlocProvider.of<GetHistoryItemsCubit>(context).getAllModels();
+    } else if (boxName == bookmarkBox) {
+      await BlocProvider.of<GetBookmarkItemsCubit>(context).getAllModels();
+    }
   }
 
   @override

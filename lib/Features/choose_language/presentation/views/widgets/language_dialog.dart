@@ -38,7 +38,9 @@ class LanguageDialog extends StatelessWidget {
                 indent: 50,
                 endIndent: 50,
               ),
-              CLanguagesListView(imageModel: imageModel),
+              CLanguagesListView(
+                imageModel: imageModel,
+              ),
               const SizedBox(
                 height: 18,
               ),

@@ -5,8 +5,6 @@ sealed class DatabaseManagerState {}
 
 final class DatabaseManagerInitial extends DatabaseManagerState {}
 
-final class EditWithoutInsert extends DatabaseManagerState {}
-
 final class InsertModelLoading extends DatabaseManagerState {}
 
 final class InsertModelDone extends DatabaseManagerState {}

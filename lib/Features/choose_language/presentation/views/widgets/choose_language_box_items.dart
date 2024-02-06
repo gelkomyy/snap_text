@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
+import 'package:snap_text/Features/home/presentation/manager/change_language_without_insert_cubit/change_language_without_insert_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
@@ -13,7 +13,8 @@ class ChooseLanguageBoxItems extends StatelessWidget {
   final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DatabaseManagerCubit, DatabaseManagerState>(
+    return BlocBuilder<ChangeLanguageWithoutInsertCubit,
+        ChangeLanguageWithoutInsertState>(
       builder: (context, state) {
         return Row(
           children: [
@@ -25,7 +26,7 @@ class ChooseLanguageBoxItems extends StatelessWidget {
               width: 12,
             ),
             Text(
-              state is DatabaseManagerInitial
+              state is ChangeLanguageWithoutInsertInitial
                   ? 'Choose a language'
                   : imageModel.selectedLanguage.displayName,
               style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
