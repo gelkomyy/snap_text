@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
+import 'package:snap_text/Features/home/presentation/manager/get_history_items_cubit/get_history_items_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/home_view.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
@@ -22,8 +23,15 @@ class SnapText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DatabaseManagerCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => DatabaseManagerCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetHistoryItemsCubit(),
+        ),
+      ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeView(),

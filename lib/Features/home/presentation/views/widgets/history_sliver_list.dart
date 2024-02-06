@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
+import 'package:snap_text/Features/home/presentation/manager/get_history_items_cubit/get_history_items_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_item.dart';
+import 'package:snap_text/Features/home/presentation/views/widgets/history_loading.dart';
 
 class HistorySliverList extends StatelessWidget {
   const HistorySliverList({
@@ -11,36 +11,18 @@ class HistorySliverList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DatabaseManagerCubit, DatabaseManagerState>(
+    return BlocBuilder<GetHistoryItemsCubit, GetHistoryItemsState>(
       builder: (context, state) {
-        if (state is GetAllModelsDone) {
+        if (state is GetAllHistoryDone) {
           return SliverList.builder(
             itemCount: state.models.length,
             itemBuilder: (context, index) {
               return HistoryItem(imageModel: state.models[index]);
             },
           );
-        } else if (state is GetAllModelsLoading) {
-          return SliverToBoxAdapter(
-            child: Shimmer.fromColors(
-              baseColor: Colors.grey.shade300,
-              highlightColor: Colors.grey.shade100,
-              enabled: true,
-              child: const SingleChildScrollView(
-                physics: NeverScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    LoadingHistoryItem(),
-                    LoadingHistoryItem(),
-                    LoadingHistoryItem(),
-                    LoadingHistoryItem(),
-                    LoadingHistoryItem(),
-                  ],
-                ),
-              ),
-            ),
+        } else if (state is GetAllHistoryLoading) {
+          return const SliverToBoxAdapter(
+            child: HistoryLoading(),
           );
         } else {
           return const SliverToBoxAdapter(
@@ -52,26 +34,6 @@ class HistorySliverList extends StatelessWidget {
           );
         }
       },
-    );
-  }
-}
-
-class LoadingHistoryItem extends StatelessWidget {
-  const LoadingHistoryItem({
-    super.key,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
-        ),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      margin: const EdgeInsets.only(top: 10),
-      height: 60,
     );
   }
 }
