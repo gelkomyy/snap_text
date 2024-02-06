@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class HistoryItemNameAndDate extends StatelessWidget {
   const HistoryItemNameAndDate({
@@ -28,7 +29,7 @@ class HistoryItemNameAndDate extends StatelessWidget {
               ' Dec 29,2023',
               style: TextStyle(
                   fontSize: 10,
-                  color: Color(0xff3F54FF),
+                  color: kPrimaryColor,
                   fontWeight: FontWeight.w500),
             ),
           ],

@@ -1,4 +1,8 @@
-import 'package:flutter/material.dart';
+
+//Unused
+
+/* import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class LanguageDialogButtons extends StatelessWidget {
   const LanguageDialogButtons({
@@ -49,7 +53,7 @@ class LanguageDialogButtons extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff3F54FF),
+                  backgroundColor: kPrimaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   )),
@@ -67,3 +71,6 @@ class LanguageDialogButtons extends StatelessWidget {
     );
   }
 }
+ */
+
+//Unused

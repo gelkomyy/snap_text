@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class HistoryItemPhoto extends StatelessWidget {
   const HistoryItemPhoto({
@@ -12,7 +13,7 @@ class HistoryItemPhoto extends StatelessWidget {
       height: 40,
       width: 40,
       decoration: BoxDecoration(
-        color: const Color(0xff3F54FF),
+        color: kPrimaryColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: const Icon(

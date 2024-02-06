@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class LanguageItem extends StatelessWidget {
   const LanguageItem({
@@ -27,7 +28,7 @@ class LanguageItem extends StatelessWidget {
           selectedLanguage == language
               ? const Icon(
                   Icons.radio_button_checked,
-                  color: Color(0xff3F54FF),
+                  color: kPrimaryColor,
                   size: 21,
                 )
               : const Icon(

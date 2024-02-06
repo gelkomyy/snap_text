@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class SelectionSourceItem extends StatelessWidget {
   const SelectionSourceItem({
@@ -23,7 +24,7 @@ class SelectionSourceItem extends StatelessWidget {
         children: [
           Card(
             shape: const CircleBorder(),
-            color: const Color(0xff3F54FF),
+            color: kPrimaryColor,
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Icon(

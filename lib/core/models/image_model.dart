@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:hive/hive.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
+part 'image_model.g.dart';
+
 @HiveType(typeId: 0)
 class ImageModel extends HiveObject {
   @HiveField(0)
@@ -21,4 +23,11 @@ class ImageModel extends HiveObject {
   }) {
     name = path.split(Platform.pathSeparator).last;
   }
+
+  ImageModel.copy(ImageModel imageModel)
+      : name = imageModel.name,
+        path = imageModel.path,
+        dateHistory = imageModel.dateHistory,
+        extractedText = imageModel.extractedText,
+        selectedLanguage = imageModel.selectedLanguage;
 }

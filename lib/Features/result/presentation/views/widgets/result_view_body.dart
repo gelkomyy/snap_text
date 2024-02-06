@@ -39,7 +39,7 @@ class ResultViewBody extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const ResultButtons(),
+          ResultButtons(imageModel: imageModel),
         ],
       ),
     );

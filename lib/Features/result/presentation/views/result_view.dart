@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/result/presentation/views/widgets/result_view_body.dart';
+import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 
 class ResultView extends StatelessWidget {
@@ -10,7 +11,7 @@ class ResultView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: const Color(0xffFAFBFD),
+        backgroundColor: kAccentColor,
         title: const Text(
           'Result',
           style: TextStyle(
@@ -19,7 +20,7 @@ class ResultView extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: const Color(0xffFAFBFD),
+      backgroundColor: kAccentColor,
       body: SafeArea(
         child: ResultViewBody(imageModel: imageModel),
       ),

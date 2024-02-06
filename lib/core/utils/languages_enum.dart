@@ -1,5 +1,7 @@
 import 'package:hive/hive.dart';
 
+part 'languages_enum.g.dart';
+
 @HiveType(typeId: 1)
 enum LanguagesEnum {
   @HiveField(0)
@@ -44,7 +46,7 @@ extension LanguageExtension on LanguagesEnum {
 
   String get displayName {
     // Convert enum value to lowercase and capitalize the first character
-    String enumString = this.toString().split('.').last;
+    String enumString = toString().split('.').last;
     return enumString[0].toUpperCase() + enumString.substring(1);
   }
 }

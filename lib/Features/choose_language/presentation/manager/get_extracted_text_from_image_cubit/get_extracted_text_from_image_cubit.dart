@@ -9,7 +9,7 @@ part 'get_extracted_text_from_image_state.dart';
 
 class GetExtractedTextFromImageCubit
     extends Cubit<GetExtractedTextFromImageState> {
-  GetExtractedTextFromImageCubit() : super(GetExtractedTextFromImageLoading());
+  GetExtractedTextFromImageCubit() : super(GetExtractedTextFromImageInitial());
 
   Future<String> getExtractedTextFromImage(
       {required File file,

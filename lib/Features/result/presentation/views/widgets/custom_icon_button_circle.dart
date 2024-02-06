@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_text/constans.dart';
 
 class CustomIconButtonCircle extends StatelessWidget {
   const CustomIconButtonCircle({
@@ -13,7 +14,7 @@ class CustomIconButtonCircle extends StatelessWidget {
       height: 60,
       width: 60,
       decoration: const BoxDecoration(
-        color: Color(0xff3F54FF),
+        color: kPrimaryColor,
         shape: BoxShape.circle,
       ),
       child: Icon(

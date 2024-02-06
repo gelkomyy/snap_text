@@ -47,7 +47,7 @@ class InTopExtractedTextDetails extends StatelessWidget {
                 File(imageModel.path),
               ),
             ),
-            // color: const Color(0xff3F54FF),
+            // color: kPrimaryColor,
             borderRadius: BorderRadius.circular(8),
           ),
           //child: Image.file(File(imageModel.path)),

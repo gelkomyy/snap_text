@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/my_languages.dart';
+import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 
 class LanguageDialog extends StatelessWidget {
@@ -37,7 +38,7 @@ class LanguageDialog extends StatelessWidget {
                 indent: 50,
                 endIndent: 50,
               ),
-              MyLanguages(imageModel: imageModel),
+              CLanguagesListView(imageModel: imageModel),
               const SizedBox(
                 height: 18,
               ),
@@ -51,7 +52,7 @@ class LanguageDialog extends StatelessWidget {
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff3F54FF),
+                        backgroundColor: kPrimaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         )),
