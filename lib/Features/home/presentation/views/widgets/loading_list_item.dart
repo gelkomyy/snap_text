@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoadingHistoryItem extends StatelessWidget {
-  const LoadingHistoryItem({
+class LoadingListItem extends StatelessWidget {
+  const LoadingListItem({
     super.key,
   });
   @override

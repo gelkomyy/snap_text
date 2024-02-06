@@ -11,7 +11,7 @@ class HistoryItem extends StatelessWidget {
   final ImageModel imageModel;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return ResultView(imageModel: imageModel);

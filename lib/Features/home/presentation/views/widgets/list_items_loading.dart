@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:snap_text/Features/home/presentation/views/widgets/loading_history_item.dart';
+import 'package:snap_text/Features/home/presentation/views/widgets/loading_list_item.dart';
 
-class HistoryLoading extends StatelessWidget {
-  const HistoryLoading({
+class ListItemsLoading extends StatelessWidget {
+  const ListItemsLoading({
     super.key,
   });
 
@@ -18,7 +18,7 @@ class HistoryLoading extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return const LoadingHistoryItem();
+            return const LoadingListItem();
           }),
     );
   }

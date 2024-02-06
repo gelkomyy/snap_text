@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/home/presentation/views/widgets/history_loading.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 
 class HistoryViewBody extends StatelessWidget {
@@ -12,7 +11,6 @@ class HistoryViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           HistorySliverList(),
-          // SliverToBoxAdapter(child: HistoryLoading()),
         ],
       ),
     );

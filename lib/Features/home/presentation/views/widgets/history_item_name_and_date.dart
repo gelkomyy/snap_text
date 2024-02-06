@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/convert_to_12hour_format.dart';
 
 class HistoryItemNameAndDate extends StatelessWidget {
   const HistoryItemNameAndDate({
@@ -33,7 +34,7 @@ class HistoryItemNameAndDate extends StatelessWidget {
         Row(
           children: [
             Text(
-              '${imageModel.dateHistory.split(' ')[0]} ${imageModel.dateHistory.split(' ')[1]} •',
+              '${convertTo12HourFormat(imageModel.dateHistory.split(' ')[0])} •',
               style: const TextStyle(
                   fontSize: 10,
                   color: Colors.grey,
