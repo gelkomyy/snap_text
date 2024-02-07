@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/history/presentation/views/history_view.dart';
+import 'package:snap_text/Features/home/presentation/manager/navigation_cubit/navigation_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
 
@@ -58,10 +60,12 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.of(context)
+                    BlocProvider.of<NavigationCubit>(context)
+                        .navigationIndexView(1);
+                    /* Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
                       return const HistoryView();
-                    }));
+                    })); */
                   },
                   child: const Text(
                     'See all',

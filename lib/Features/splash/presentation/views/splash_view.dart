@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
     cInitHive().then((value) {
       setState(() {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeView()),
+          MaterialPageRoute(builder: (context) => const NavigationPage()),
         );
       });
     });
