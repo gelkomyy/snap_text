@@ -28,6 +28,14 @@ class DatabaseManagerCubit extends Cubit<DatabaseManagerState> {
     }
   }
 
+  Future<void> saveAfterEditedModel(
+      {required ImageModel imageModel, required String boxName}) async {
+    emit(SaveModelLoading());
+    await databaseHelper.saveAfterEditedModelHive(
+        boxName: boxName, imageModel: imageModel);
+    emit(SaveModelDone());
+  }
+
   Future<void> deleteModel(
       {required ImageModel imageModel,
       required String boxName,
@@ -42,14 +50,6 @@ class DatabaseManagerCubit extends Cubit<DatabaseManagerState> {
     } else if (boxName == bookmarkBox) {
       await BlocProvider.of<GetBookmarkItemsCubit>(context).getAllModels();
     }
-  }
-
-  Future<void> saveAfterEditedModel(
-      {required ImageModel imageModel, required String boxName}) async {
-    emit(SaveModelLoading());
-    await databaseHelper.saveAfterEditedModelHive(
-        boxName: boxName, imageModel: imageModel);
-    emit(SaveModelDone());
   }
 
   Future<void> clearBoxModel(String boxName, BuildContext context) async {

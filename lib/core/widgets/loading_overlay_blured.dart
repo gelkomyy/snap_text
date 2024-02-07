@@ -23,7 +23,7 @@ class LoadingOverlayBlured extends StatelessWidget {
                     child: ImageFiltered(
                       imageFilter: ImageFilter.blur(sigmaX: 1.3, sigmaY: 1.3),
                       child: Container(
-                          color: Colors.black,
+                          color: Colors.transparent,
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height,
                           child: child),

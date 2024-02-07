@@ -6,7 +6,7 @@ import 'package:snap_text/core/utils/languages_enum.dart';
 
 class GetExtractedTextApi {
   ApiService apiService = ApiService(Dio());
-  String apiKey = 'helloworld';
+  String apiKey = 'K81155067888957';
   Future<String> getTextFromApi({
     required File file,
     LanguagesEnum language = LanguagesEnum.english,

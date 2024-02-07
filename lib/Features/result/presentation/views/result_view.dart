@@ -29,11 +29,13 @@ class ResultView extends StatelessWidget {
                   boxName = bookmarkBox;
                 }
                 if (!context.mounted) return;
+
                 await BlocProvider.of<DatabaseManagerCubit>(context)
                     .deleteModel(
                         imageModel: imageModel,
                         boxName: boxName,
                         context: context);
+
                 if (!context.mounted) return;
                 Navigator.of(context).pop();
               }

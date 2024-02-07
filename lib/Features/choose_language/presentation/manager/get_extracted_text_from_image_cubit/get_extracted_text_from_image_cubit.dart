@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:snap_text/core/utils/get_extracted_text.dart';
+import 'package:snap_text/core/utils/get_extracted_text_api.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 part 'get_extracted_text_from_image_state.dart';

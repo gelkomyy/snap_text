@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_text/Features/bookmark/presentation/views/widgets/bookmark_item.dart';
 import 'package:snap_text/Features/home/presentation/manager/get_bookmark_items_cubit/get_bookmark_items_cubit.dart';
-import 'package:snap_text/Features/home/presentation/views/widgets/history_item.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/list_items_loading.dart';
 
 class BookmarkSliverList extends StatelessWidget {
@@ -17,7 +17,7 @@ class BookmarkSliverList extends StatelessWidget {
           return SliverList.builder(
             itemCount: state.models.length,
             itemBuilder: (context, index) {
-              return HistoryItem(imageModel: state.models[index]);
+              return BookmarkItem(imageModel: state.models[index]);
             },
           );
         } else if (state is GetAllBookmarkLoading) {
