@@ -39,11 +39,9 @@ class SnapText extends StatelessWidget {
           create: (context) => GetBookmarkItemsCubit(),
         ),
       ],
-      child: MaterialApp(
-        initialRoute: '/home',
-        routes: {'/home': (context) => const HomeView()},
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomeView(),
+        home: HomeView(),
       ),
     );
   }

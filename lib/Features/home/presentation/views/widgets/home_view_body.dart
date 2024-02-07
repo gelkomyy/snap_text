@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snap_text/Features/bookmark/presentation/views/bookmark_view.dart';
+import 'package:snap_text/Features/history/presentation/views/history_view.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
 
@@ -60,7 +60,7 @@ class HomeViewBody extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return const BookmarkView();
+                      return const HistoryView();
                     }));
                   },
                   child: const Text(
