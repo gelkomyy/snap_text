@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:snap_text/Features/home/presentation/views/home_view.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/database_helper.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -45,6 +46,7 @@ class _SplashScreenState extends State<SplashScreen>
     await Hive.openBox<ImageModel>(historyBox);
 
     await Hive.openBox<ImageModel>(bookmarkBox);
+    await DatabaseHelper().deleteExpiredModels(historyBox, 7);
     await Future.delayed(const Duration(seconds: 4));
   }
 

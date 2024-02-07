@@ -75,7 +75,10 @@ class BottomOfLanguageView extends StatelessWidget {
     BlocProvider.of<DatabaseManagerCubit>(context).insertModel(
         imageModel: imageModel, boxName: historyBox, context: context);
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-      return ResultView(imageModel: imageModel);
+      return ResultView(
+        imageModel: imageModel,
+        previousView: '',
+      );
     }));
   }
 }

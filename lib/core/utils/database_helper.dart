@@ -34,6 +34,18 @@ class DatabaseHelper {
     var box = Hive.box<ImageModel>(boxName);
     await box.close();
   }
+
+  Future<void> deleteExpiredModels(String boxName, int daysToExpire) async {
+    var box = Hive.box<ImageModel>(boxName);
+    final List<dynamic> keys = box.keys
+        .toList(); // Get a copy of keys to avoid ConcurrentModificationError
+    for (final key in keys) {
+      final model = box.get(key);
+      if (model != null && model.isExpired(daysToExpire)) {
+        await box.delete(key);
+      }
+    }
+  }
 }
 /* Future<void> deleteHiveDatabase() async {
   // Get the directory where Hive stores its data

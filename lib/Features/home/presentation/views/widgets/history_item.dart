@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_item_data.dart';
 import 'package:snap_text/Features/result/presentation/views/result_view.dart';
+import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 
 class HistoryItem extends StatelessWidget {
@@ -14,7 +15,10 @@ class HistoryItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return ResultView(imageModel: imageModel);
+          return ResultView(
+            imageModel: imageModel,
+            previousView: historyBox,
+          );
         }));
       },
       child: Container(

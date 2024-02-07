@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 part 'image_model.g.dart';
@@ -30,4 +31,17 @@ class ImageModel extends HiveObject {
         dateHistory = imageModel.dateHistory,
         extractedText = imageModel.extractedText,
         selectedLanguage = imageModel.selectedLanguage;
+
+  bool isExpired(int daysToExpire) {
+    final now = DateTime.now();
+    final date = _parseDate(dateHistory); // Convert the string to DateTime
+    final difference = now.difference(date).inDays;
+    return difference >= daysToExpire;
+  }
+
+  DateTime _parseDate(String dateString) {
+    const pattern = 'hh:mm a dd/MM/yyyy'; // Define the format pattern
+    final formatter = DateFormat(pattern); // Create a DateFormat object
+    return formatter.parse(dateString); // Parse the string to DateTime
+  }
 }
