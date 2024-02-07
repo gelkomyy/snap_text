@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/manage_back_button.dart.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
@@ -57,10 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Colors.lightBlueAccent,
-              kPrimaryColor
-            ], // Set your gradient colors
+            colors: [kAccentColor, kPrimaryColor], // Set your gradient colors
             begin: Alignment.topLeft, // Optional, defaults to top center
             end: Alignment.bottomRight, // Optional, defaults to bottom center
             //   stops: [ 0.4, 0.3], // Optional, specify the stop points
@@ -72,15 +70,25 @@ class _SplashScreenState extends State<SplashScreen>
             children: <Widget>[
               // Replace 'assets/logo.png' with the path to your PNG logo
               Image.asset(
-                'assets/logo.png',
-                width: 250 * _animation.value,
-                height: 250 * _animation.value,
+                'assets/ocr.png',
+                width: 115 * _animation.value,
+                height: 115 * _animation.value,
               ),
 
-              const SizedBox(height: 20),
-              const CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+              const SizedBox(height: 10),
+              Shimmer.fromColors(
+                period: const Duration(milliseconds: 1100),
+                baseColor: const Color(0xff151718),
+                highlightColor: Colors.grey.shade300,
+                child: Text(
+                  'Snap Text',
+                  style: TextStyle(fontSize: 34 * _animation.value),
+                ),
               ),
+
+              /*  const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+              ), */
             ],
           ),
         ),

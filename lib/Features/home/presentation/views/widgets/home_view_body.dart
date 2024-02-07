@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:snap_text/Features/home/presentation/manager/navigation_cubit/navigation_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
@@ -16,9 +17,25 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Align(
               alignment: Alignment.topLeft,
-              child: Image.asset(
-                'assets/logo.png',
-                width: 165,
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/ocr.png',
+                    width: 40,
+                  ),
+                  Shimmer.fromColors(
+                    period: const Duration(seconds: 8),
+                    baseColor: const Color(0xff151718),
+                    highlightColor: Colors.grey.shade300,
+                    child: const Text(
+                      'Snap Text',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
