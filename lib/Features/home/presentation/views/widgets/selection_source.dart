@@ -1,8 +1,11 @@
 //import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source_item.dart';
+import 'package:snap_text/core/utils/custom_snack_bar.dart';
 import 'package:snap_text/core/utils/picked_image.dart';
+import 'package:snap_text/core/utils/request_permissions.dart';
 
 class SelectionSource extends StatelessWidget {
   const SelectionSource({
@@ -15,8 +18,15 @@ class SelectionSource extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         InkWell(
-          onTap: () {
-            pickImage(context, ImageSource.camera);
+          onTap: () async {
+            bool permissionAllow = await requestPermissions(
+                [Permission.camera, Permission.storage]);
+            if (!context.mounted) return;
+            if (permissionAllow) {
+              await pickImage(context, ImageSource.camera);
+            } else {
+              showCutomSnackBar(context, 'The app need camera permission');
+            }
           },
           child: const SelectionSourceItem(
             text: 'Camera',
@@ -25,7 +35,14 @@ class SelectionSource extends StatelessWidget {
         ),
         InkWell(
           onTap: () async {
-            pickImage(context, ImageSource.gallery);
+            bool permissionAllow = await requestPermissions(
+                [Permission.photos, Permission.storage]);
+            if (!context.mounted) return;
+            if (permissionAllow) {
+              await pickImage(context, ImageSource.gallery);
+            } else {
+              showCutomSnackBar(context, 'The app need storage permission');
+            }
           },
           child: const SelectionSourceItem(
             text: 'Gallery',
