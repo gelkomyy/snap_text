@@ -52,10 +52,6 @@ class CustomBottomNavBar extends StatelessWidget {
                 icon: Icons.bookmark,
                 text: 'Bookmarks',
               ),
-              GButton(
-                icon: Icons.info,
-                text: 'Info',
-              ),
             ],
             // selectedIndex: _selectedIndex,
           ),

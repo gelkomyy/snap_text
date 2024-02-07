@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:snap_text/Features/home/presentation/views/home_view.dart';
+import 'package:snap_text/Features/home/presentation/views/widgets/manage_back_button.dart.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/database_helper.dart';
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
     cInitHive().then((value) {
       setState(() {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const NavigationPage()),
+          MaterialPageRoute(builder: (context) => const ManageBackButton()),
         );
       });
     });
