@@ -4,10 +4,10 @@ import 'package:snap_text/Features/home/presentation/manager/database_manager_cu
 import 'package:snap_text/Features/home/presentation/manager/get_bookmark_items_cubit/get_bookmark_items_cubit.dart';
 import 'package:snap_text/Features/home/presentation/manager/get_history_items_cubit/get_history_items_cubit.dart';
 import 'package:snap_text/Features/splash/presentation/views/splash_view.dart';
-import 'package:snap_text/core/utils/custom_bloc_observer.dart';
+//import 'package:snap_text/core/utils/custom_bloc_observer.dart';
 
 void main() async {
-  Bloc.observer = CustomBlocObserver();
+  //Bloc.observer = CustomBlocObserver();
 
   runApp(const SnapText());
 }

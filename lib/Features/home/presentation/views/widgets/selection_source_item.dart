@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/utils/get_responsive_font_size.dart';
-import 'package:snap_text/core/utils/get_responsive_size.dart';
 
 class SelectionSourceItem extends StatelessWidget {
   const SelectionSourceItem({
