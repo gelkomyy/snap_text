@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/home/presentation/manager/change_language_without_insert_cubit/change_language_without_insert_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 class ChooseLanguageBoxItems extends StatelessWidget {
@@ -29,7 +30,9 @@ class ChooseLanguageBoxItems extends StatelessWidget {
               state is ChangeLanguageWithoutInsertInitial
                   ? 'Choose a language'
                   : imageModel.selectedLanguage.displayName,
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 17),
+                  fontWeight: FontWeight.w600),
             ),
             const Spacer(),
             const Card(

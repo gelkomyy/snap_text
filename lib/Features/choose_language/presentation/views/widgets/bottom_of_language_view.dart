@@ -9,6 +9,7 @@ import 'package:snap_text/Features/home/presentation/manager/database_manager_cu
 import 'package:snap_text/Features/result/presentation/views/result_view.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class BottomOfLanguageView extends StatelessWidget {
   const BottomOfLanguageView({
@@ -51,12 +52,12 @@ class BottomOfLanguageView extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: kPrimaryColor,
           ),
-          child: const Text(
+          child: Text(
             'Extract Text',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
-              fontSize: 18,
+              fontSize: getResponsiveFontSize(context, fontSize: 18),
             ),
           ),
         ),

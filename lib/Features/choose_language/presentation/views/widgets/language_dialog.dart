@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snap_text/Features/choose_language/presentation/views/widgets/my_languages.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class LanguageDialog extends StatelessWidget {
   const LanguageDialog({
@@ -24,11 +25,11 @@ class LanguageDialog extends StatelessWidget {
           // height:   MediaQuery.of(context).size.height * 0.5,
           child: Column(
             children: [
-              const Text(
+              Text(
                 'Select Language',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: getResponsiveFontSize(context, fontSize: 20),
                 ),
               ),
               const SizedBox(
@@ -58,11 +59,11 @@ class LanguageDialog extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         )),
-                    child: const Text(
+                    child: Text(
                       'Done',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: getResponsiveFontSize(context, fontSize: 16),
                       ),
                     ),
                   ),

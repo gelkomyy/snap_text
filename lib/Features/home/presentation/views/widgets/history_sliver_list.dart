@@ -4,6 +4,7 @@ import 'package:snap_text/Features/home/presentation/manager/get_history_items_c
 import 'package:snap_text/Features/home/presentation/views/widgets/history_item.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/list_items_loading.dart';
 import 'package:snap_text/core/utils/check_screen_view.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class HistorySliverList extends StatelessWidget {
   const HistorySliverList({
@@ -26,11 +27,13 @@ class HistorySliverList extends StatelessWidget {
         } else if (state is GetAllHistoryLoading) {
           return const SliverToBoxAdapter(child: ListItemsLoading());
         } else {
-          return const SliverToBoxAdapter(
+          return SliverToBoxAdapter(
             child: Center(
                 child: Text(
               'History empty ...',
-              style: TextStyle(fontSize: 22),
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 22),
+              ),
             )),
           );
         }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/convert_to_12hour_format.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class HistoryItemNameAndDate extends StatelessWidget {
   const HistoryItemNameAndDate({
@@ -24,8 +25,8 @@ class HistoryItemNameAndDate extends StatelessWidget {
               overflow: TextOverflow.fade,
               maxLines: 1,
               softWrap: false,
-              style: const TextStyle(
-                fontSize: 17,
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 17),
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -35,15 +36,15 @@ class HistoryItemNameAndDate extends StatelessWidget {
           children: [
             Text(
               '${convertTo12HourFormat(imageModel.dateHistory.split(' ')[0])} •',
-              style: const TextStyle(
-                  fontSize: 10,
+              style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 10),
                   color: Colors.grey,
                   fontWeight: FontWeight.w500),
             ),
             Text(
               ' ${imageModel.dateHistory.split(' ').last}',
-              style: const TextStyle(
-                fontSize: 10,
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 10),
                 color: kPrimaryColor,
                 fontWeight: FontWeight.w500,
               ),

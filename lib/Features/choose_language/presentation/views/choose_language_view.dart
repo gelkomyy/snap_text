@@ -7,6 +7,7 @@ import 'package:snap_text/Features/choose_language/presentation/views/widgets/la
 import 'package:snap_text/Features/home/presentation/manager/change_language_without_insert_cubit/change_language_without_insert_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class ChooseLanguageView extends StatelessWidget {
   const ChooseLanguageView({super.key, required this.croppedFile});
@@ -40,10 +41,10 @@ class ChooseLanguageView extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: kAccentColor,
-          title: const Text(
+          title: Text(
             'Language',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: getResponsiveFontSize(context, fontSize: 20),
               fontWeight: FontWeight.bold,
             ),
           ),

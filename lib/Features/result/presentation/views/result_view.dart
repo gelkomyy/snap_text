@@ -4,6 +4,7 @@ import 'package:snap_text/Features/home/presentation/manager/database_manager_cu
 import 'package:snap_text/Features/result/presentation/views/widgets/result_view_body.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 import 'package:snap_text/core/utils/show_confirmation_dialog.dart';
 
 class ResultView extends StatelessWidget {
@@ -45,10 +46,10 @@ class ResultView extends StatelessWidget {
         ],
         elevation: 0,
         backgroundColor: kAccentColor,
-        title: const Text(
+        title: Text(
           'Result',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: getResponsiveFontSize(context, fontSize: 20),
             fontWeight: FontWeight.bold,
           ),
         ),

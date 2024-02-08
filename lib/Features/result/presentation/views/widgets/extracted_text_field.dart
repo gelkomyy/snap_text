@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/home/presentation/manager/database_manager_cubit/database_manager_cubit.dart';
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 class ExtractedTextField extends StatelessWidget {
@@ -40,9 +41,11 @@ class ExtractedTextField extends StatelessWidget {
           ),
           maxLines: 16,
         ),
-        const Text(
+        Text(
           'scroll the text if large',
-          style: TextStyle(fontSize: 10),
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 10),
+          ),
         )
       ],
     );

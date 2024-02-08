@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snap_text/Features/bookmark/presentation/views/widgets/bookmark_item.dart';
 import 'package:snap_text/Features/home/presentation/manager/get_bookmark_items_cubit/get_bookmark_items_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/list_items_loading.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class BookmarkSliverList extends StatelessWidget {
   const BookmarkSliverList({
@@ -23,11 +24,13 @@ class BookmarkSliverList extends StatelessWidget {
         } else if (state is GetAllBookmarkLoading) {
           return const SliverToBoxAdapter(child: ListItemsLoading());
         } else {
-          return const SliverToBoxAdapter(
+          return SliverToBoxAdapter(
             child: Center(
                 child: Text(
               'Bookmarks empty ...',
-              style: TextStyle(fontSize: 22),
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 22),
+              ),
             )),
           );
         }

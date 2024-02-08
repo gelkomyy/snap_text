@@ -5,6 +5,7 @@ import 'package:snap_text/Features/home/presentation/views/widgets/manage_back_b
 import 'package:snap_text/constans.dart';
 import 'package:snap_text/core/models/image_model.dart';
 import 'package:snap_text/core/utils/database_helper.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 import 'package:snap_text/core/utils/languages_enum.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -83,7 +84,8 @@ class _SplashScreenState extends State<SplashScreen>
                 child: Text(
                   'Snap Text',
                   style: TextStyle(
-                    fontSize: 34 * _animation.value,
+                    fontSize: getResponsiveFontSize(context, fontSize: 34) *
+                        _animation.value,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.italic,
                   ),

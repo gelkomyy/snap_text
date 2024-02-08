@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_text/constans.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class LanguageItem extends StatelessWidget {
   const LanguageItem({
@@ -41,9 +42,9 @@ class LanguageItem extends StatelessWidget {
           ),
           Text(
             language,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 15,
+              fontSize: getResponsiveFontSize(context, fontSize: 15),
             ),
           ),
         ],

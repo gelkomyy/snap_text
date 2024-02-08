@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:snap_text/core/models/image_model.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class InTopExtractedTextDetails extends StatelessWidget {
   const InTopExtractedTextDetails({
@@ -15,21 +16,21 @@ class InTopExtractedTextDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Extracted Text',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               'Edit, Copy and Save the text',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: getResponsiveFontSize(context, fontSize: 12),
                 fontWeight: FontWeight.bold,
                 color: Colors.grey,
               ),

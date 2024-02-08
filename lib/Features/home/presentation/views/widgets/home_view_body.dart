@@ -4,6 +4,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:snap_text/Features/home/presentation/manager/navigation_cubit/navigation_cubit.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/history_sliver_list.dart';
 import 'package:snap_text/Features/home/presentation/views/widgets/selection_source.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -27,10 +28,11 @@ class HomeViewBody extends StatelessWidget {
                     period: const Duration(seconds: 8),
                     baseColor: const Color(0xff151718),
                     highlightColor: Colors.grey.shade300,
-                    child: const Text(
+                    child: Text(
                       'Snap Text',
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize:
+                              getResponsiveFontSize(context, fontSize: 24),
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic),
                     ),
@@ -67,10 +69,10 @@ class HomeViewBody extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'History',
                   style: TextStyle(
-                    fontSize: 26,
+                    fontSize: getResponsiveFontSize(context, fontSize: 26),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -83,10 +85,10 @@ class HomeViewBody extends StatelessWidget {
                       return const HistoryView();
                     })); */
                   },
-                  child: const Text(
+                  child: Text(
                     'See all',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: getResponsiveFontSize(context, fontSize: 18),
                     ),
                   ),
                 ),

@@ -5,6 +5,7 @@ import 'package:snap_text/Features/home/presentation/manager/database_manager_cu
 import 'package:snap_text/Features/home/presentation/manager/get_history_items_cubit/get_history_items_cubit.dart';
 
 import 'package:snap_text/constans.dart';
+import 'package:snap_text/core/utils/get_responsive_font_size.dart';
 import 'package:snap_text/core/utils/show_confirmation_dialog.dart';
 
 class HistoryView extends StatefulWidget {
@@ -61,10 +62,10 @@ class _HistoryViewState extends State<HistoryView> {
         titleSpacing: 0,
         elevation: 0,
         backgroundColor: kAccentColor,
-        title: const Text(
+        title: Text(
           'History',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: getResponsiveFontSize(context, fontSize: 20),
             fontWeight: FontWeight.bold,
           ),
         ),
