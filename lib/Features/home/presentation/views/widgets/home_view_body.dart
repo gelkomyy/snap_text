@@ -46,10 +46,12 @@ class HomeViewBody extends StatelessWidget {
               height: 25,
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Text(
               'Hey, what will you do today? 🤔',
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 36),
+                  fontWeight: FontWeight.bold),
             ),
           ),
           const SliverToBoxAdapter(
