@@ -14,52 +14,61 @@ class SelectionSource extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        InkWell(
-          onTap: () async {
-            bool permissionAllow = await requestPermissions(
-                [Permission.camera, Permission.storage]);
-            if (!context.mounted) return;
-            if (permissionAllow) {
-              await pickImage(context, ImageSource.camera);
-            } else {
-              showCutomSnackBar(context, 'The app need camera permission');
-              await Future.delayed(const Duration(seconds: 1));
-              if (await Permission.camera.isPermanentlyDenied) {
-                // user manually enables it in the system settings.
-                openAppSettings();
-              }
-            }
-          },
-          child: const SelectionSourceItem(
-            text: 'Camera',
-            iconData: Icons.photo_camera,
+    return Flexible(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Flexible(
+            child: InkWell(
+              onTap: () async {
+                bool permissionAllow = await requestPermissions(
+                    [Permission.camera, Permission.storage]);
+                if (!context.mounted) return;
+                if (permissionAllow) {
+                  await pickImage(context, ImageSource.camera);
+                } else {
+                  showCutomSnackBar(context, 'The app need camera permission');
+                  await Future.delayed(const Duration(seconds: 1));
+                  if (await Permission.camera.isPermanentlyDenied) {
+                    // user manually enables it in the system settings.
+                    openAppSettings();
+                  }
+                }
+              },
+              child: const SelectionSourceItem(
+                text: 'Camera',
+                iconData: Icons.photo_camera,
+              ),
+            ),
           ),
-        ),
-        InkWell(
-          onTap: () async {
-            bool permissionAllow = await requestPermissions(
-                [Permission.photos, Permission.storage]);
-            if (!context.mounted) return;
-            if (permissionAllow) {
-              await pickImage(context, ImageSource.gallery);
-            } else {
-              showCutomSnackBar(context, 'The app need storage permission');
-              await Future.delayed(const Duration(seconds: 1));
-              if (await Permission.storage.isPermanentlyDenied) {
-                // user manually enables it in the system settings.
-                openAppSettings();
-              }
-            }
-          },
-          child: const SelectionSourceItem(
-            text: 'Gallery',
-            iconData: Icons.photo_library,
+          const SizedBox(
+            width: 5,
           ),
-        ),
-      ],
+          Flexible(
+            child: InkWell(
+              onTap: () async {
+                bool permissionAllow = await requestPermissions(
+                    [Permission.photos, Permission.storage]);
+                if (!context.mounted) return;
+                if (permissionAllow) {
+                  await pickImage(context, ImageSource.gallery);
+                } else {
+                  showCutomSnackBar(context, 'The app need storage permission');
+                  await Future.delayed(const Duration(seconds: 1));
+                  if (await Permission.storage.isPermanentlyDenied) {
+                    // user manually enables it in the system settings.
+                    openAppSettings();
+                  }
+                }
+              },
+              child: const SelectionSourceItem(
+                text: 'Gallery',
+                iconData: Icons.photo_library,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
