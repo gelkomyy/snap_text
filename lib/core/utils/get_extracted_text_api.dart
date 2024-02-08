@@ -17,8 +17,12 @@ class GetExtractedTextApi {
           filename: file.path.split(Platform.pathSeparator).last),
       'language': language.shortCode,
     });
-    var responseData =
-        await apiService.post(endPoint: 'image', formData: formData);
-    return responseData['ParsedResults'][0]['ParsedText'];
+    try {
+      var responseData =
+          await apiService.post(endPoint: 'image', formData: formData);
+      return responseData['ParsedResults'][0]['ParsedText'];
+    } catch (e) {
+      return e.toString();
+    }
   }
 }
