@@ -3,8 +3,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <application
-        android:label="snap_text"
+        android:label="SnapText"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

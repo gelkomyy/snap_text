@@ -26,6 +26,11 @@ class SelectionSource extends StatelessWidget {
               await pickImage(context, ImageSource.camera);
             } else {
               showCutomSnackBar(context, 'The app need camera permission');
+              await Future.delayed(const Duration(seconds: 1));
+              if (await Permission.camera.isPermanentlyDenied) {
+                // user manually enables it in the system settings.
+                openAppSettings();
+              }
             }
           },
           child: const SelectionSourceItem(
@@ -42,6 +47,11 @@ class SelectionSource extends StatelessWidget {
               await pickImage(context, ImageSource.gallery);
             } else {
               showCutomSnackBar(context, 'The app need storage permission');
+              await Future.delayed(const Duration(seconds: 1));
+              if (await Permission.storage.isPermanentlyDenied) {
+                // user manually enables it in the system settings.
+                openAppSettings();
+              }
             }
           },
           child: const SelectionSourceItem(

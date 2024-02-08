@@ -82,7 +82,11 @@ class _SplashScreenState extends State<SplashScreen>
                 highlightColor: Colors.grey.shade300,
                 child: Text(
                   'Snap Text',
-                  style: TextStyle(fontSize: 34 * _animation.value),
+                  style: TextStyle(
+                    fontSize: 34 * _animation.value,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
               ),
 
